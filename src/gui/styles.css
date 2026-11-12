@@ -1,0 +1,135 @@
+:root {
+  --bg: #0b1014;
+  --panel: #111a20;
+  --line: #24333d;
+  --text: #c8d6df;
+  --muted: #6f8591;
+  --bot: #6ee7b7;
+  --ally: #4ade80;
+  --enemy: #fb7185;
+  --neutral: #facc15;
+  --structure: #93c5fd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 30% 0%, #15222a 0%, var(--bg) 55%);
+  color: var(--text);
+  font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #0d151b;
+}
+
+h1 { margin: 0; font-size: 16px; letter-spacing: 0.12em; }
+h1 span { color: var(--bot); }
+#status { margin: 2px 0 0; color: var(--muted); font-size: 11px; }
+.tick { color: var(--muted); }
+.tick b { color: var(--bot); }
+
+.layout { display: grid; grid-template-columns: 1fr 300px; height: calc(100vh - 62px); }
+
+.map-wrap {
+  position: relative;
+  margin: 14px;
+  border: 1px solid var(--line);
+  background: #0a1115;
+  overflow: hidden;
+}
+
+#map-canvas { width: 100%; height: 100%; display: block; }
+
+.markers { position: absolute; inset: 0; pointer-events: none; }
+
+.marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.bot-marker {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--bot);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--bot);
+  background: #0e1c19;
+  font-size: 10px;
+  box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
+}
+
+.bot-marker.group-2 { border-color: var(--ally); color: var(--ally); }
+.bot-marker.group-3 { border-color: var(--enemy); color: var(--enemy); }
+
+.player-marker {
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  background: rgba(10, 17, 21, 0.85);
+  font-size: 10px;
+}
+.player-marker.whitelist { color: var(--ally); }
+.player-marker.blacklist { color: var(--enemy); }
+.player-marker.neutral { color: var(--neutral); }
+
+.structure-marker {
+  padding: 1px 5px;
+  color: var(--structure);
+  border: 1px dashed currentColor;
+  background: rgba(10, 17, 21, 0.7);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.legend {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  display: flex;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 10px;
+  background: rgba(10, 17, 21, 0.8);
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 3px; }
+.dot.bot { background: var(--bot); }
+.dot.ally { background: var(--ally); }
+.dot.enemy { background: var(--enemy); }
+.dot.neutral { background: var(--neutral); }
+.dot.structure { background: var(--structure); }
+
+.sidebar { border-left: 1px solid var(--line); overflow-y: auto; }
+.panel { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.panel h2 { margin: 0 0 8px; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+.panel label { display: block; padding: 3px 0; }
+input[type="checkbox"] { accent-color: var(--bot); }
+
+.progress { height: 8px; background: #18242b; border: 1px solid var(--line); margin: 6px 0; }
+.progress > i { display: block; height: 100%; background: var(--bot); width: 0; transition: width 0.3s; }
+.row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
+.muted { color: var(--muted); }
+.group-pill { display: inline-block; padding: 1px 6px; border: 1px solid var(--line); margin: 0 4px 4px 0; }
+
+.command-row { display: flex; gap: 6px; }
+.command-row input { flex: 1; min-width: 0; background: #0a1115; border: 1px solid var(--line); color: var(--text); padding: 6px; font: inherit; }
+.command-row button, .command-presets button { background: #14242c; color: var(--bot); border: 1px solid var(--line); padding: 6px 8px; font: inherit; cursor: pointer; }
+.command-presets { display: flex; gap: 6px; margin-top: 6px; }
+.command-presets button { flex: 1; font-size: 10px; }
+.command-row button:hover, .command-presets button:hover { border-color: var(--bot); }
+
+#server-select { width: 100%; margin-bottom: 6px; background: #0a1115; border: 1px solid var(--line); color: var(--text); padding: 5px; font: inherit; }

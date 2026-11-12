@@ -1,0 +1,6 @@
+{"dir":"s2c","hex":"14ae8ff87faeafb9aeae46b4838346b48383aeadaeae","note":"0x14 one 20-byte record"}
+{"dir":"s2c","hex":"14aeae7eaea3aeaec1b9aeaeaeaeaeaeaeaeaeaeaeaeaedb4fa3afbb1eab01b8fa826bb8fa82aaaeaeae","note":"0x14 two 20-byte records"}
+{"dir":"c2s","hex":"475bc8b9b24a6a12","note":"0x47 c8 8-byte move-like command"}
+{"dir":"c2s","hex":"475bccb90a91","note":"0x47 cc 6-byte action-like command"}
+{"dir":"c2s","hex":"475bce9b","note":"0x47 ce 4-byte quick command"}
+{"dir":"c2s","hex":"475bcab9aef2c7b1aeeaea45366f8613","note":"0x47 ca 16-byte command"}

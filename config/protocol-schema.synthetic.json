@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "game": "devast.io",
+  "gameBuild": "synthetic",
+  "capturedAt": "2026-11-11T00:00:00Z",
+  "authoritative": false,
+  "framing": {
+    "mode": "ws-message",
+    "notes": "Synthetic frames only. This schema exercises the decoder and fixtures pipeline; it says nothing about the real protocol."
+  },
+  "opcodes": {
+    "c2s": {
+      "ping": {
+        "name": "ping",
+        "direction": "c2s",
+        "status": "confirmed",
+        "opcode": { "offset": 0, "type": "u8", "value": 1 },
+        "fields": [{ "name": "seq", "offset": 1, "type": "u32le" }],
+        "notes": "Synthetic."
+      },
+      "move": {
+        "name": "move",
+        "direction": "c2s",
+        "status": "confirmed",
+        "opcode": { "offset": 0, "type": "u8", "value": 2 },
+        "fields": [
+          { "name": "x", "offset": 1, "type": "f32le" },
+          { "name": "z", "offset": 5, "type": "f32le" }
+        ],
+        "notes": "Synthetic."
+      },
+      "chat": {
+        "name": "chat",
+        "direction": "c2s",
+        "status": "hypothesis",
+        "opcode": { "offset": 0, "type": "u8", "value": 3 },
+        "fields": [{ "name": "text", "offset": 1, "type": "string", "lengthType": "u8" }],
+        "notes": "Synthetic."
+      }
+    },
+    "s2c": {
+      "welcome": {
+        "name": "welcome",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": { "offset": 0, "type": "u8", "value": 16 },
+        "fields": [
+          { "name": "protocol", "offset": 1, "type": "u16le" },
+          { "name": "build", "offset": 3, "type": "string", "lengthType": "u8" }
+        ],
+        "notes": "Synthetic."
+      }
+    }
+  },
+  "unknownOpcodes": []
+}

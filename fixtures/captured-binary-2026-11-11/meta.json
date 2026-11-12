@@ -1,0 +1,9 @@
+{
+  "name": "captured-binary-2026-11-11",
+  "gameBuild": "capture-2026-11-11",
+  "schema": "../../config/protocol-schema.json",
+  "frames": "frames.jsonl",
+  "expected": "expected.json",
+  "strict": true,
+  "notes": "Real binary frames from sessions/20261111-161935-cdp-mwc5bhbc-5DA21FE4: entity batches 0x14 and client commands 0x47."
+}

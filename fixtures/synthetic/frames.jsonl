@@ -1,0 +1,4 @@
+{"dir":"c2s","hex":"0178563412","note":"ping, seq=0x12345678"}
+{"dir":"c2s","hex":"020000c03f000010c0","note":"move (1.5, -2.25)"}
+{"dir":"c2s","hex":"030568656c6c6f","note":"chat 'hello'"}
+{"dir":"s2c","hex":"100700056465762d31","note":"welcome protocol=7 build='dev-1'"}

@@ -1,0 +1,32 @@
+{
+  "name": "devastbotnet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Protocol-first tooling and RTS swarm architecture for Devast.io — Phase 0 reverse engineering",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/tests/*.test.js\" \"tools/**/*.test.mjs\"",
+    "fixtures:check": "npm run build && node tools/fixtures/check.mjs",
+    "fixtures:update": "npm run build && node tools/fixtures/check.mjs --update",
+    "recorder": "node tools/recorder/server.mjs",
+    "analyze": "node tools/recorder/analyze.mjs",
+    "check:userscript": "node --check tools/sniffer/master-client-sniffer.user.js",
+    "gui": "node tools/gui/server.mjs",
+    "demo:scale": "npm run build && node tools/demo/scale.mjs",
+    "demo:simulate": "npm run build && node tools/demo/simulate.mjs",
+    "demo:swarm": "npm run build && python tools/demo/swarm.py",
+    "swarm:live": "python tools/demo/live_server.py"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.5.12",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "ok": true,
+    "direction": "s2c",
+    "opcode": 20,
+    "name": "entity_batch",
+    "status": "hypothesis",
+    "fields": {
+      "key": 174,
+      "records": {
+        "bytes": "8ff87faeafb9aeae46b4838346b48383aeadaeae"
+      }
+    },
+    "consumedBytes": 22
+  },
+  {
+    "ok": true,
+    "direction": "s2c",
+    "opcode": 20,
+    "name": "entity_batch",
+    "status": "hypothesis",
+    "fields": {
+      "key": 174,
+      "records": {
+        "bytes": "ae7eaea3aeaec1b9aeaeaeaeaeaeaeaeaeaeaeaeaedb4fa3afbb1eab01b8fa826bb8fa82aaaeaeae"
+      }
+    },
+    "consumedBytes": 42
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 71,
+    "name": "client_command",
+    "status": "hypothesis",
+    "fields": {
+      "key": 91,
+      "command": 200,
+      "payload": {
+        "bytes": "b9b24a6a12"
+      }
+    },
+    "consumedBytes": 8
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 71,
+    "name": "client_command",
+    "status": "hypothesis",
+    "fields": {
+      "key": 91,
+      "command": 204,
+      "payload": {
+        "bytes": "b90a91"
+      }
+    },
+    "consumedBytes": 6
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 71,
+    "name": "client_command",
+    "status": "hypothesis",
+    "fields": {
+      "key": 91,
+      "command": 206,
+      "payload": {
+        "bytes": "9b"
+      }
+    },
+    "consumedBytes": 4
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 71,
+    "name": "client_command",
+    "status": "hypothesis",
+    "fields": {
+      "key": 91,
+      "command": 202,
+      "payload": {
+        "bytes": "b9aef2c7b1aeeaea45366f8613"
+      }
+    },
+    "consumedBytes": 16
+  }
+]

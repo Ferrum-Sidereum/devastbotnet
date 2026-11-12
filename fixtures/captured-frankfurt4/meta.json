@@ -1,0 +1,9 @@
+{
+  "name": "captured-frankfurt4",
+  "gameBuild": "unverified",
+  "schema": "../../config/protocol-schema.json",
+  "frames": "frames.jsonl",
+  "expected": "expected.json",
+  "strict": true,
+  "notes": "Real text-frame shapes captured from wss://frankfurt4.devast.io/frankfurtsurvival1 on 2026-11-11. Names/tags/token redacted; numeric payload untouched."
+}

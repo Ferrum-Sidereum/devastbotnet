@@ -1,0 +1,9 @@
+{
+  "name": "synthetic",
+  "gameBuild": "synthetic",
+  "schema": "../../config/protocol-schema.synthetic.json",
+  "frames": "frames.jsonl",
+  "expected": "expected.json",
+  "strict": true,
+  "notes": "Generated frames that exercise u32/f32/string decoding. Not captured from the game."
+}

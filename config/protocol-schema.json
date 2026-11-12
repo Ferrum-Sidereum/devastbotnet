@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "game": "devast.io",
+  "gameBuild": "capture-2026-11-11",
+  "capturedAt": "2026-11-11T13:00:00Z",
+  "authoritative": false,
+  "framing": {
+    "mode": "unknown",
+    "notes": "Binary frames and JSON-array text frames coexist. Text opcodes 2/5/6/7/8/9 observed on frankfurt4/frankfurtsurvival1; semantics are hypotheses."
+  },
+  "opcodes": {
+    "c2s": {
+      "client_command": {
+        "name": "client_command",
+        "direction": "c2s",
+        "status": "hypothesis",
+        "opcode": {
+          "offset": 0,
+          "type": "u8",
+          "value": 71
+        },
+        "fields": [
+          {
+            "name": "key",
+            "offset": 1,
+            "type": "u8",
+            "note": "Constant 0x5b observed in all outbound frames."
+          },
+          {
+            "name": "command",
+            "offset": 2,
+            "type": "u8",
+            "note": "Observed families: 0xc8/0xcc/0xce for short commands, 0xd1 for the join/auth frame."
+          },
+          {
+            "name": "payload",
+            "offset": 3,
+            "type": "bytes",
+            "note": "Raw command payload; length varies by command."
+          }
+        ],
+        "notes": "All 239 outbound frames start 0x47 0x5b. 8B/7B at ~166 ms look like movement; 6B at ~234 ms like actions; 0xd1 opens the session. Semantics unconfirmed."
+      }
+    },
+    "s2c": {
+      "entity_batch": {
+        "name": "entity_batch",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": {
+          "offset": 0,
+          "type": "u8",
+          "value": 20
+        },
+        "fields": [
+          {
+            "name": "key",
+            "offset": 1,
+            "type": "u8",
+            "note": "Hypothesis: per-frame XOR/obfuscation key; 0xae observed."
+          },
+          {
+            "name": "records",
+            "offset": 2,
+            "type": "bytes",
+            "note": "Raw records; (len-2) % 20 == 0 for all 566 observed frames."
+          }
+        ],
+        "notes": "2-byte header + N*20-byte records. 437 one-record heartbeats at ~178 ms; 129 multi-record batches."
+      }
+    }
+  },
+  "unknownOpcodes": [],
+  "textOpcodes": {
+    "c2s": {},
+    "s2c": {
+      "combat_event": {
+        "name": "combat_event",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 1,
+        "rest": true,
+        "fields": [],
+        "notes": "Observed [1,33,31760,\"Desert Eagle\",0,0] near Game Over; possibly kill/death event with weapon name. Semantics unconfirmed."
+      },
+      "roster": {
+        "name": "roster",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 2,
+        "rest": true,
+        "fields": [],
+        "notes": "Player list; observed 100-ish entries, mixed names/zeros."
+      },
+      "server_tags": {
+        "name": "server_tags",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 5,
+        "rest": true,
+        "fields": [],
+        "notes": "Short list of clan/tag strings and numbers."
+      },
+      "pair": {
+        "name": "pair",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 6,
+        "rest": true,
+        "fields": [],
+        "notes": "Two integers observed."
+      },
+      "id_list": {
+        "name": "id_list",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 7,
+        "rest": true,
+        "fields": [],
+        "notes": "List of numeric IDs."
+      },
+      "id_name_value": {
+        "name": "id_name_value",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 8,
+        "fields": [
+          {
+            "name": "id",
+            "index": 1,
+            "type": "number"
+          },
+          {
+            "name": "name",
+            "index": 2,
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "index": 3,
+            "type": "number"
+          }
+        ],
+        "notes": "Observed [8,id,name,number]."
+      },
+      "leaderboard": {
+        "name": "leaderboard",
+        "direction": "s2c",
+        "status": "hypothesis",
+        "opcode": 9,
+        "rest": true,
+        "fields": [],
+        "notes": "Repeating id/name/flags entries."
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Devast Swarm RTS</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>DEVAST <span>SWARM RTS</span></h1>
+        <p id="status">connecting…</p>
+      </div>
+      <div class="tick">tick <b id="tick">0</b></div>
+    </header>
+    <main class="layout">
+      <section class="map-wrap">
+        <canvas id="map-canvas" width="960" height="640"></canvas>
+        <div id="markers" class="markers"></div>
+        <div class="legend">
+          <span class="dot bot"></span> bots
+          <span class="dot ally"></span> whitelist
+          <span class="dot enemy"></span> blacklist
+          <span class="dot neutral"></span> neutral
+          <span class="dot structure"></span> structures
+        </div>
+      </section>
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Слои</h2>
+          <label><input type="checkbox" data-layer="players" checked /> Игроки</label>
+          <label><input type="checkbox" data-layer="bots" checked /> Свои боты</label>
+          <label><input type="checkbox" data-layer="structures" checked /> Постройки</label>
+        </section>
+        <section class="panel">
+          <h2>Квота</h2>
+          <div id="quota-panel">—</div>
+        </section>
+        <section class="panel">
+          <h2>Группы</h2>
+          <div id="groups">—</div>
+        </section>
+        <section class="panel">
+          <h2>Команды</h2>
+          <select id="server-select">
+            <option value="">AUTO</option>
+            <option value="frankfurtsurvival1">Frankfurt 1</option>
+            <option value="frankfurtsurvival2">Frankfurt 2</option>
+            <option value="atlantasurvival1">Atlanta 1</option>
+            <option value="atlantasurvival2">Atlanta 2</option>
+            <option value="losangelessurvival1">Los Angeles 1</option>
+            <option value="osakasurvival1">Osaka 1</option>
+            <option value="sydneysurvival1">Sydney 1</option>
+          </select>
+          <div class="command-row">
+            <input id="command-hex" value="475bc8b9b24a6a12" spellcheck="false" />
+            <button id="send-command">SEND</button>
+          </div>
+          <div class="command-presets">
+            <button data-hex="475bc8b9b24a6a12">MOVE</button>
+            <button data-hex="475bccb90a91">GATHER</button>
+            <button data-hex="475bce9b">ATTACK</button>
+          </div>
+          <div id="command-status" class="muted">target: all live bots</div>
+        </section>
+        <section class="panel">
+          <h2>IFF</h2>
+          <div id="iff">—</div>
+        </section>
+      </aside>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

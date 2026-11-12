@@ -1,0 +1,48 @@
+[
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 1,
+    "name": "ping",
+    "status": "confirmed",
+    "fields": {
+      "seq": 305419896
+    },
+    "consumedBytes": 5
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 2,
+    "name": "move",
+    "status": "confirmed",
+    "fields": {
+      "x": 1.5,
+      "z": -2.25
+    },
+    "consumedBytes": 9
+  },
+  {
+    "ok": true,
+    "direction": "c2s",
+    "opcode": 3,
+    "name": "chat",
+    "status": "hypothesis",
+    "fields": {
+      "text": "hello"
+    },
+    "consumedBytes": 7
+  },
+  {
+    "ok": true,
+    "direction": "s2c",
+    "opcode": 16,
+    "name": "welcome",
+    "status": "hypothesis",
+    "fields": {
+      "protocol": 7,
+      "build": "dev-1"
+    },
+    "consumedBytes": 9
+  }
+]
